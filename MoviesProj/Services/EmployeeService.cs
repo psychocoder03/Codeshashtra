@@ -6,15 +6,23 @@ namespace MoviesProj.Services
     public class EmployeeService : IEmployeeService
     {
         private readonly IMongoCollection<Employee> _employee;
+        private readonly IMongoCollection<Employer> _employer;
 
         public EmployeeService(IMovieDatabaseSettings settings, IMongoClient mongoClient)
         {
             var database = mongoClient.GetDatabase(settings.DatabaseName);
             _employee = database.GetCollection<Employee>(settings.EmployeeCollectionName);
+            _employer = database.GetCollection<Employer>(settings.EmployerCollectionName);
         }
         public async Task<Employee> Get(string email)
         {
+
             return await _employee.Find(employee => employee.EmployeeEmail == email).FirstOrDefaultAsync();
+        }
+        public async Task<List<Employee>> GetEmployee(string email)
+        {
+
+            return await _employee.Find(employee => employee.Email == email).ToListAsync();
         }
         public async Task<Employee> Create(Employee employee)
         {

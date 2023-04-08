@@ -16,6 +16,15 @@ LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
 "/nlog.config"));
 
 // Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 builder.Services.Configure<MovieDatabaseSettings>(
     builder.Configuration.GetSection(nameof(MovieDatabaseSettings)));
@@ -82,6 +91,8 @@ if (app.Environment.IsDevelopment())
 
 if (app.Environment.IsProduction())
     app.UseHsts();
+
+app.UseCors("MyCorsPolicy");
 
 app.UseHttpsRedirection();
 
