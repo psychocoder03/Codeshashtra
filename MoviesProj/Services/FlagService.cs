@@ -58,6 +58,7 @@ namespace MoviesProj.Services
         {
             Flags existingFlag = await GetEmail(email);
             existingFlag.Flag.Append(colour);
+            Console.WriteLine(existingFlag.Flag[1]);
             _flags.ReplaceOne(flag => flag.Email == email, existingFlag);
             UpdateFlags(email);
             return await _flags.Find(sp => sp.Email == email).FirstOrDefaultAsync();

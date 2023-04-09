@@ -110,6 +110,15 @@ namespace MoviesProj.Services
                 await _actual.InsertOneAsync(responseData);
             }
         }
+
+        public async Task<SendAadhaar> SendAadhaarDetails(string email)
+        {
+            var aadhaarDetail = await _actual.Find(ex => ex.Email == email).FirstOrDefaultAsync();
+            SendAadhaar sendAadhaar = new SendAadhaar() {dob = aadhaarDetail.Result.Data.Dob, gender = aadhaarDetail.Result.Data.Gender, house = aadhaarDetail.Result.Data.Address.House, street = aadhaarDetail.Result.Data.Address.Street, subdist = aadhaarDetail.Result.Data.Address.Subdist, vtc = aadhaarDetail.Result.Data.Address.Vtc };
+            return sendAadhaar;
+
+        }
+
     }
 
 }

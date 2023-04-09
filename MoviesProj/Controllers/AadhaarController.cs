@@ -29,5 +29,12 @@ namespace MoviesProj.Controllers
             //await aadhaarService.SubmitOtpAsync("iaOte65IcLkUG0ejtjOtc2kFBntHFbmeWoi3aTW6zIlQ9NfoV4c3U4QIumep1knzs", "63bdac23db031848ad320ad11c4781b4:730a7a0e994711d4257bc0b2b0f069a6", otp,email);
             return Ok();
         }
+
+        [HttpGet("aadhaar/{email}")]
+        public async Task<ActionResult> Aadhaar(string email)
+        {
+            return Ok(await aadhaarService.SendAadhaarDetails(email));
+             
+        }
     }
 }
