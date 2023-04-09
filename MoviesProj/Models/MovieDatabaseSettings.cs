@@ -10,5 +10,7 @@
         public string? AadhaarCollectionName { get; set; }
         public string? ActualCollectionName { get; set; }
         public string? LastAadhaarCollectionName { get; set; }
+        public string? FlagCollectionName { get; set; }
+        
     }
 }

@@ -10,6 +10,6 @@
         string? AadhaarCollectionName { get; set; }
         string? ActualCollectionName { get; set; }
         string? LastAadhaarCollectionName { get; set; }
-        
+        string? FlagCollectionName { get; set; }
     }
 }

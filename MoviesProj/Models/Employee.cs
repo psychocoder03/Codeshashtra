@@ -42,5 +42,8 @@ namespace MoviesProj.Models
         [BsonElement("photo")]
         public string? Photo { get; set; }
 
+        [BsonElement("flag")]
+        public string? Flag { get; set; }
+
     }
 }

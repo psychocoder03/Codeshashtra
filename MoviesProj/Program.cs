@@ -41,6 +41,7 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IEmployerService, EmployerService>();
 builder.Services.AddScoped<IEmployeeService,EmployeeService>();
 builder.Services.AddScoped<IAadhaarAuthenticator, AadhaarAuthenticator>();
+builder.Services.AddScoped<IFlagService, FlagService>();
 
 //builder.Services.AddAntiforgery();
 
