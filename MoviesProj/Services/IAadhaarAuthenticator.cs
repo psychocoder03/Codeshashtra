@@ -2,7 +2,7 @@
 {
     public interface IAadhaarAuthenticator
     {
-        Task CallExternalApiAndInsertDocumentAsync(string secretKey, string clientId, string aadhaarNumber);
-        Task SubmitOtpAsync(string secretKey, string clientId, string otp);
+        Task CallExternalApiAndInsertDocumentAsync(string secretKey, string clientId, string aadhaarNumber,string email);
+        Task SubmitOtpAsync(string secretKey, string clientId, string otp, string email);
     }
 }

@@ -17,7 +17,7 @@ namespace MoviesProj.Controllers
         [HttpGet("{email}/{aadhaarNumber}")]
         public async Task<ActionResult> Get(string email,string aadhaarNumber)
         {
-            await aadhaarService.CallExternalApiAndInsertDocumentAsync("iaOte65IcLkUG0ejtjOtc2kFBntHFbmeWoi3aTW6zIlQ9NfoV4c3U4QIumep1knzs", "63bdac23db031848ad320ad11c4781b4:730a7a0e994711d4257bc0b2b0f069a6", aadhaarNumber);
+            await aadhaarService.CallExternalApiAndInsertDocumentAsync("iaOte65IcLkUG0ejtjOtc2kFBntHFbmeWoi3aTW6zIlQ9NfoV4c3U4QIumep1knzs", "63bdac23db031848ad320ad11c4781b4:730a7a0e994711d4257bc0b2b0f069a6", aadhaarNumber, email);
             return Ok();
         }
 
@@ -26,7 +26,7 @@ namespace MoviesProj.Controllers
         {
             Console.WriteLine(email);
             Console.WriteLine(otp);
-            //await aadhaarService.SubmitOtpAsync("iaOte65IcLkUG0ejtjOtc2kFBntHFbmeWoi3aTW6zIlQ9NfoV4c3U4QIumep1knzs", "63bdac23db031848ad320ad11c4781b4:730a7a0e994711d4257bc0b2b0f069a6", otp);
+            //await aadhaarService.SubmitOtpAsync("iaOte65IcLkUG0ejtjOtc2kFBntHFbmeWoi3aTW6zIlQ9NfoV4c3U4QIumep1knzs", "63bdac23db031848ad320ad11c4781b4:730a7a0e994711d4257bc0b2b0f069a6", otp,email);
             return Ok();
         }
     }

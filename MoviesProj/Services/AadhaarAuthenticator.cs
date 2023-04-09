@@ -24,7 +24,7 @@ namespace MoviesProj.Services
             _last = database.GetCollection<LastAadhaar>(settings.LastAadhaarCollectionName);
         }
 
-        public async Task CallExternalApiAndInsertDocumentAsync(string secretKey, string clientId, string aadhaarNumber)
+        public async Task CallExternalApiAndInsertDocumentAsync(string secretKey, string clientId, string aadhaarNumber,string email)
         {
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("secretKey", secretKey);
@@ -52,6 +52,7 @@ namespace MoviesProj.Services
             // Insert document into MongoDB collection
             var aadhaar = new Aadhaar
             {
+                Email = email,
                 Code = model.Code,
                 Result = new Result
                 {
@@ -78,7 +79,7 @@ namespace MoviesProj.Services
 
         //}
         //aadhaar_v2_hktfNxeRude32GwNRzoqnc
-        public async Task SubmitOtpAsync(string secretKey, string clientId,string otp)
+        public async Task SubmitOtpAsync(string secretKey, string clientId,string otp,string email)
         {
 
             LastAadhaar last = await _last.Find(last => last.Id == "6432044b7eb5162865e8b661").FirstOrDefaultAsync();
@@ -104,7 +105,7 @@ namespace MoviesProj.Services
                 var responseContent = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseContent);
                 var responseData = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseData>(responseContent);
-
+                responseData.Email = email;
                 // Insert the responseData into the collection
                 await _actual.InsertOneAsync(responseData);
             }

@@ -10,6 +10,10 @@ namespace MoviesProj.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+        [EmailAddress(ErrorMessage = "Invalid Email")]
+        [BsonElement("email")]
+        public string? Email { get; set; }
+
         [BsonElement("code")]
         public int? Code { get; set; }
 
