@@ -40,7 +40,7 @@ builder.Services.AddSingleton<IMongoClient>(s =>
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IEmployerService, EmployerService>();
 builder.Services.AddScoped<IEmployeeService,EmployeeService>();
-//builder.Services.AddScoped<ISpecificCommentService, SpecificCommentService>();
+builder.Services.AddScoped<IAadhaarAuthenticator, AadhaarAuthenticator>();
 
 //builder.Services.AddAntiforgery();
 

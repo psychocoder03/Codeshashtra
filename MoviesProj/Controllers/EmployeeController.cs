@@ -21,6 +21,8 @@ namespace MoviesProj.Controllers
         public async Task<ActionResult> Get(string email)
         {
             var employee = await employeeService.Get(email);
+            
+
             if (employee == null)
                 return NotFound($"Employee with Email {email} not found.");
            return Ok(employee);

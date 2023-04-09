@@ -7,5 +7,9 @@
         string? EmployeeCollectionName { get; set; }
         string? ConnectionString { get; set; }
         string? DatabaseName { get; set; }
+        string? AadhaarCollectionName { get; set; }
+        string? ActualCollectionName { get; set; }
+        string? LastAadhaarCollectionName { get; set; }
+        
     }
 }
