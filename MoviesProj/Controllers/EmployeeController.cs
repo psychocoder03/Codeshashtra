@@ -29,7 +29,7 @@ namespace MoviesProj.Controllers
         [HttpGet("all/{email}")]
         public async Task<ActionResult> Details(string email)
         {
-            var employee = await employeeService.GetEmployee(email);
+             var employee = await employeeService.GetEmployee(email);
             if (employee == null)
                 return NotFound($"Employee with Email {email} not found.");
             return Ok(employee);

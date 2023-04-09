@@ -40,7 +40,7 @@ namespace MoviesProj.Models
         public string? Pan { get; set; }
 
         [BsonElement("photo")]
-        public byte[]? Photo { get; set; }
+        public string? Photo { get; set; }
 
     }
 }
